@@ -2,6 +2,7 @@ import pygame
 import random
 pygame.init()
 score = 0
+sub=0
 
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
@@ -31,7 +32,8 @@ while running:
             mouse_x, mouse_y = pygame.mouse.get_pos()
             if target_x < mouse_x < target_x + target_width and target_y < mouse_y < target_y + target_height:
                 score += 1
-                pygame.display.set_caption(f"Игра Тир. Счёт {score}")
+                sub+=2
+                pygame.display.set_caption(f"Игра Тир. Счёт {score}. Уменьшение разера мишени на {sub} пикселей")
                 target_width = max(10, target_width - 2)
                 target_height = max(10, target_height - 2)
                 target_img = pygame.transform.scale(target_img, (target_width, target_height))
